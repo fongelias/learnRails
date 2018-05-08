@@ -38,8 +38,11 @@ First, you establish the identifying scope of the form by wrapping it in the fol
 form_with call takes `scope` `:article`, and points the submission to the url associated with the configuration variable articles_path
 
 ### Creating a model
-Rails models can be generated
+Rails models can be generated:
 `bins/rails generate model Article title:string text:text`
+specifies model name with attributes and their types
+this will add these attributes to the articles table in the database, under a file `db/migrate/[date value]_create_articles.rb`
+mapped to the Article model in the file `app/models/article.rb`
 
 ## Glossary
 generators = scripts that create files necssary for a particular task
