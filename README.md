@@ -24,7 +24,22 @@ controllers can be generated with a generator script
 
 routing file in `config/routes.rb` determines how Rails connects incoming requests to controllers and actions
 
-all controllers inherit from Application Controller
+all controllers inherit from ApplicationController
+
+### Templating
+Templates are in `html.erb` files, which stands for embedded ruby. This means, you have an html file with ruby inside of it
+
+#### Forms
+First, you establish the identifying scope of the form by wrapping it in the following:
+```
+<%= form_with scope: :article, url: articles_path, local:true do |form| %>
+<% end %>
+```
+form_with call takes `scope` `:article`, and points the submission to the url associated with the configuration variable articles_path
+
+### Creating a model
+Rails models can be generated
+`bins/rails generate model Article title:string text:text`
 
 ## Glossary
 generators = scripts that create files necssary for a particular task
