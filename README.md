@@ -41,8 +41,13 @@ form_with call takes `scope` `:article`, and points the submission to the url as
 Rails models can be generated:
 `bins/rails generate model Article title:string text:text`
 specifies model name with attributes and their types
-this will add these attributes to the articles table in the database, under a file `db/migrate/[date value]_create_articles.rb`
+this will add these attributes to the articles table in the database, with a migration file at `db/migrate/[date value]_create_articles.rb`
 mapped to the Article model in the file `app/models/article.rb`
+
+### Migrations
+migration files use rake commands to create and modify database tables
+to run migrations from the migrate folder, run:
+`bin/rails db:migrate`
 
 ## Glossary
 generators = scripts that create files necssary for a particular task

@@ -5,6 +5,14 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
-		render plain: params[:article].inspect # pramas contains fields form the form
+		# render plain: params[:article].inspect # params contains fields from the form
+		@article = Article.new(article_params)
+		@article.save
+		redirect_to @article
 	end
+
+	private
+		def article_params
+			params.require(:article).permit(:title, :text)
+		end
 end
