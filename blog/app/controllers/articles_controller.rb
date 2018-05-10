@@ -1,4 +1,8 @@
 class ArticlesController < ApplicationController
+	def index
+		@articles = Article.all
+	end
+
 	def new
 		# automatically looks for an articles/new template file
 		# fallback to application/new
