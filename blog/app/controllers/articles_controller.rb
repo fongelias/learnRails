@@ -6,13 +6,17 @@ class ArticlesController < ApplicationController
 	def new
 		# automatically looks for an articles/new template file
 		# fallback to application/new
+		@article = Article.new
 	end
 
 	def create
 		# render plain: params[:article].inspect # params contains fields from the form
 		@article = Article.new(article_params)
-		@article.save
-		redirect_to @article
+		if @article.save
+			redirect_to @article
+		else
+			render 'new' # redirect does not pass params, render passes through @article param
+		end
 	end
 
 	def show
