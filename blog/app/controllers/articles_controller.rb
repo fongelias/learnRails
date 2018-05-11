@@ -9,6 +9,10 @@ class ArticlesController < ApplicationController
 		@article = Article.new
 	end
 
+	def edit
+		@article = Article.find(params[:id])
+	end
+
 	def create
 		# render plain: params[:article].inspect # params contains fields from the form
 		@article = Article.new(article_params)
@@ -16,6 +20,16 @@ class ArticlesController < ApplicationController
 			redirect_to @article
 		else
 			render 'new' # redirect does not pass params, render passes through @article param
+		end
+	end
+
+	def update
+		@article = Article.find(params[:id])
+
+		if @article.update(article_params)
+			redirect to @article
+		else
+			render 'edit'
 		end
 	end
 
