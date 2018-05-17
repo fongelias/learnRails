@@ -1,6 +1,9 @@
 class Article < ApplicationRecord 
 	# ApplicationRecord inherits from ActiveRecord::Base
 	# ActiveRecord::Base supplies a large amount of functionality, including CRUD
-	validates :title, presence: true, length: { minimum: 5 }
+	# associates articles with their comments:
+	has_many :comments
 	# When validation fails on save, @article.save will return false
+	validates :title, presence: true, length: { minimum: 5 }
+	
 end
