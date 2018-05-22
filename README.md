@@ -1,4 +1,4 @@
-# learnRails
+# [learnRails](http://guides.rubyonrails.org/getting_started.html)
 ## Installation
 Rails requires ruby version 2.2.2 or later, as well as sqlite3
 Then, to install:
